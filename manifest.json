@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "email reply suggester",
+  "version": "1.0.0",
+  "description": "It reads the email and suggests a formal reply for the mail",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://mail.google.com/*", "http://locahost:8080/*"],
+  "action": {
+    "default_title": "Email Reply Suggester"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["content.css", "content.js"],
+      "matches": ["https://mail.google.com/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
